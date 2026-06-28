@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "title": "Cox's Bazar",
+    "img": "https://images.unsplash.com/photo-1582650517303-b42616d56fba?q=80&w=1000",
+    "alt": "Longest natural sandy beach in Cox's Bazar, Bangladesh",
+    "rating": 4.9
+  },
+  {
+    "id": 2,
+    "title": "Sreemangal",
+    "img": "https://images.unsplash.com/photo-1599930112419-cdb3a58e1763?q=80&w=1000",
+    "alt": "Lush green tea gardens in Sreemangal, the tea capital of Bangladesh",
+    "rating": 4.7
+  },
+  {
+    "id": 3,
+    "title": "Sajek Valley",
+    "img": "https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?q=80&w=1000",
+    "alt": "Beautiful cloud view and hills in Sajek Valley, Rangamati",
+    "rating": 4.8
+  },
+  {
+    "id": 4,
+    "title": "Sundarbans",
+    "img": "https://images.unsplash.com/photo-1608958416755-e7f017ef65e7?q=80&w=1000",
+    "alt": "The largest mangrove forest Sundarbans, home of Royal Bengal Tiger",
+    "rating": 4.6
+  },
+  {
+    "id": 5,
+    "title": "Kuakata",
+    "img": "https://images.unsplash.com/photo-1624314138470-5a2f24623f10?q=80&w=1000",
+    "alt": "Kuakata sea beach famous for both sunrise and sunset views",
+    "rating": 4.5
+  },
+  {
+    "id": 6,
+    "title": "Saint Martin",
+    "img": "https://images.unsplash.com/photo-1542856391-010fb87dcfed?q=80&w=1000",
+    "alt": "Coral island Saint Martin with crystal clear blue water",
+    "rating": 4.9
+  },
+  {
+    "id": 7,
+    "title": "Sylhet",
+    "img": "https://images.unsplash.com/photo-1600683057850-89196b0bdc04?q=80&w=1000",
+    "alt": "Beautiful swamp forest and rivers in Sylhet, Bangladesh",
+    "rating": 4.7
+  }
+]
