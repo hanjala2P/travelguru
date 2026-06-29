@@ -39,7 +39,7 @@ const Hero = () => {
         card.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-    // মাউস ড্র্যাগ হ্যান্ডলার
+  
     const onMouseDown = (e) => {
         setIsDown(true);
         setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
@@ -65,54 +65,119 @@ const Hero = () => {
 
     return (
         <section>
-            <div className="hero min-h-screen overflow-hidden py-10 lg:py-0" style={{ backgroundImage: `url(${bg})` }}>
-                <div className="hero-overlay bg-opacity-60"></div>
-                
-                <div className="hero-content flex flex-col lg:flex-row items-center justify-between gap-10 w-full max-w-7xl px-4 text-neutral-content z-10">
-                    
-                    <div className="max-w-md text-center lg:text-left flex-1 shrink-0 mt-6 lg:mt-0">
-                        <h1 className="mb-4 text-4xl sm:text-5xl font-bold leading-tight">Explore the World with Us</h1>
-                        <p className="mb-6 text-sm sm:text-base text-gray-200">Discover breathtaking destinations, unique experiences, and unforgettable adventures. Your journey starts here.</p>
-                        <Link to={`/destination/${cards[0]?.id || '1'}`}>
-                            <button className="btn bg-amber-400 border-none text-black hover:bg-amber-500 px-6">Get Started</button>
-                        </Link>
-                    </div>
+<div
+  className="hero min-h-screen overflow-hidden py-10 lg:py-0"
+  style={{ backgroundImage: `url(${bg})` }}
+>
+  <div className="hero-overlay bg-opacity-60"></div>
 
-                    <div className="w-full flex-1 overflow-hidden flex flex-col gap-6">
-                        <div 
-                            ref={scrollContainerRef}
-                            onMouseDown={onMouseDown}
-                            onMouseLeave={onMouseLeaveOrUp}
-                            onMouseUp={onMouseLeaveOrUp}
-                            onMouseMove={onMouseMove}
-                            className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-none scroll-smooth snap-x snap-mandatory py-4 px-2 cursor-grab active:cursor-grabbing"
-                            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}
-                        >
-                            {filteredCards.length > 0 ? filteredCards.map((card) => (
-                                <Link to={`/cardInfo/${card.id}`} key={card.id} className="snap-start shrink-0">
-                                    <div className="relative rounded-2xl h-[360px] w-[240px] sm:h-[416px] sm:w-[270px] overflow-hidden shadow-2xl group transition-all duration-300 hover:scale-[1.02] bg-gray-800">
-                                        <img src={card.img} alt={card.title} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" onError={(e) => { e.target.src = bg; }} />
-                                        <div className="absolute inset-0 border-t-[1px] border-x-[1px] border-b-[4px] border-amber-400 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl z-20 pointer-events-none"></div>
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10"></div>
-                                        <div className="absolute bottom-0 inset-x-0 p-4 text-center z-10">
-                                            <h3 className="text-lg sm:text-xl font-semibold text-white mb-2">{card.title}</h3>
-                                        </div>
-                                    </div>
-                                </Link>
-                            )) : <p className="text-white">No Match Found</p>}
-                        </div>
+  <div className="hero-content flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-10 w-full max-w-7xl px-4 sm:px-6 text-neutral-content z-10">
 
-                        {filteredCards.length > 0 && (
-                            <div className="flex gap-4 justify-center lg:justify-start pl-2">
-                                <button onClick={() => handleScroll('left')} className="btn btn-circle bg-white/20 hover:bg-white text-white border-none shadow-lg">❮</button>
-                                <button onClick={() => handleScroll('right')} className="btn btn-circle bg-amber-400 text-black hover:bg-amber-500 border-none shadow-lg">❯</button>
-                            </div>
-                        )}
-                    </div>
+    {/* Left Content */}
+    <div className="max-w-md text-center lg:text-left flex-1 shrink-0 mt-4 lg:mt-0">
+      <h1 className="mb-4 text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
+        Explore the World with Us
+      </h1>
+
+      <p className="mb-6 text-sm sm:text-base lg:text-lg text-gray-200 px-2 lg:px-0">
+        Discover breathtaking destinations, unique experiences, and unforgettable adventures. Your journey starts here.
+      </p>
+
+      <Link to={`/destination/${cards[0]?.id || "1"}`}>
+        <button className="btn bg-amber-400 border-none text-black hover:bg-amber-500 px-6">
+          Get Started
+        </button>
+      </Link>
+    </div>
+
+    {/* Right Cards */}
+    <div className="w-full flex-1 overflow-hidden flex flex-col gap-6">
+      <div
+        ref={scrollContainerRef}
+        onMouseDown={onMouseDown}
+        onMouseLeave={onMouseLeaveOrUp}
+        onMouseUp={onMouseLeaveOrUp}
+        onMouseMove={onMouseMove}
+        className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-none scroll-smooth snap-x snap-mandatory py-4 px-1 sm:px-2 cursor-grab active:cursor-grabbing"
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+          WebkitOverflowScrolling: "touch",
+        }}
+      >
+        {filteredCards.length > 0 ? (
+          filteredCards.map((card) => (
+            <Link
+              to={`/cardInfo/${card.id}`}
+              key={card.id}
+              className="snap-start shrink-0"
+            >
+              <div
+                className="
+                  relative
+                  overflow-hidden
+                  rounded-2xl
+                  bg-gray-800
+                  shadow-2xl
+                  group
+                  transition-all
+                  duration-300
+                  hover:scale-[1.02]
+
+                  w-[180px] h-[280px]
+                  sm:w-[220px] sm:h-[340px]
+                  md:w-[250px] md:h-[390px]
+                  lg:w-[270px] lg:h-[416px]
+                "
+              >
+                <img
+                  src={card.img}
+                  alt={card.title}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  onError={(e) => {
+                    e.target.src = bg;
+                  }}
+                />
+
+                <div className="absolute inset-0 border-t border-x border-b-4 border-amber-400 opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-2xl z-20 pointer-events-none"></div>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10"></div>
+
+                <div className="absolute bottom-0 inset-x-0 p-3 sm:p-4 text-center z-10">
+                  <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-white">
+                    {card.title}
+                  </h3>
                 </div>
-            </div>
+              </div>
+            </Link>
+          ))
+        ) : (
+          <p className="text-white">No Match Found</p>
+        )}
+      </div>
+
+      {filteredCards.length > 0 && (
+        <div className="flex gap-4 justify-center lg:justify-start pl-2">
+          <button
+            onClick={() => handleScroll("left")}
+            className="btn btn-circle bg-white/20 hover:bg-white text-white border-none shadow-lg"
+          >
+            ❮
+          </button>
+
+          <button
+            onClick={() => handleScroll("right")}
+            className="btn btn-circle bg-amber-400 text-black hover:bg-amber-500 border-none shadow-lg"
+          >
+            ❯
+          </button>
+        </div>
+      )}
+    </div>
+  </div>
+</div>
             
-        
+     
             <section className="py-16 px-4 max-w-7xl mx-auto">
                 <h2 className="text-3xl font-bold text-slate-800 mb-8">Popular Destinations</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
