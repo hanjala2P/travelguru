@@ -66,7 +66,7 @@ const Hero = () => {
     return (
         <section>
 <div
-  className="hero min-h-screen overflow-hidden py-10 lg:py-0"
+  className="hero-content w-full flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-10 max-w-7xl px-4 text-neutral-content z-10"
   style={{ backgroundImage: `url(${bg})` }}
 >
   <div className="hero-overlay bg-opacity-60"></div>
@@ -178,20 +178,22 @@ const Hero = () => {
 </div>
             
      
-            <section className="py-16 px-4 max-w-7xl mx-auto">
-                <h2 className="text-3xl font-bold text-slate-800 mb-8">Popular Destinations</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {cards.slice(0, 4).map(card => (
-                        <div key={card.id} className="card bg-base-100 shadow-lg hover:shadow-xl transition-all">
-                            <figure className="h-48"><img src={card.img} alt={card.title} /></figure>
-                            <div className="card-body">
-                                <h3 className="font-bold">{card.title}</h3>
-                            </div>
-                        </div>
-                    ))}
+           <section className="py-8 px-4 max-w-7xl mx-auto">
+    <h2 className="text-3xl font-bold text-slate-800 mb-8">Popular Destinations</h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+     
+        {cards.slice(0, 4).map(card => (
+            <div key={card.id} className="card bg-base-100 shadow-lg hover:shadow-xl transition-all">
+                <figure className="h-48"><img src={card.img} alt={card.title} /></figure>
+                <div className="card-body">
+                    <h3 className="font-bold">{card.title}</h3>
+                    <p className="text-sm text-gray-500">{card.location}</p>
                 </div>
-            </section>
-            <section className="bg-amber-50 py-16">
+            </div>
+        ))}
+    </div>
+</section>
+            <section className="bg-amber-50 py-8">
     <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
         <div className="p-6">
             <span className="text-4xl mb-4 block">🛡️</span>
@@ -211,7 +213,7 @@ const Hero = () => {
     </div>
 </section>
               {/* Newsletter */}
-            <section className="py-16 bg-slate-800 text-white text-center">
+            <section className="py-8 bg-slate-800 text-white text-center">
                 <div className="max-w-3xl mx-auto px-4">
                     <h2 className="text-3xl font-bold mb-4">Ready to Start Your Adventure?</h2>
                     <div className="flex gap-2 justify-center">
